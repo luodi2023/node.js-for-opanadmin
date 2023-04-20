@@ -2,42 +2,119 @@
 {% load static %}
 
 {% block panel %}
-    <div class="panel panel-default">
-        <div class="add_box"><a class="btn btn-primary btn-xs" href="#">新增用户</a></div>
-  <!-- Default panel contents -->
-        <div class="panel-heading">用户列表</div>
-        {% block table %}
-        <table class="table table-bordered">
-                 <thead>
-                    {% for stu in stu_desc %}
-                    <th>{{ stu }}</th>
-                    {% endfor %}
-                    <th>操作</th>
-                 </thead>
-                 <tbody>
-                    {% for obj in data_list %}
-                    <tr>
-                       <td>{{ obj.id }}</td>
-                       <td>{{ obj.name }}</td>
-                       <td>{{ obj.password }}</td>
-                       <td>{{ obj.age }}</td>
-                       <td>{{ obj.account }}</td>
-                       <td>{{ obj.create_time }}</td>
-                       <td>{{ obj.depart_id }}</td>
-                       <td>{{ obj.gender }}</td>
-                        <td>
-                            <a class="btn btn-success" href="#">编辑</a>
-                            <a class="btn btn-danger" href="#">删除</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                 </tbody>
-            </table>
-        {% endblock %}
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+        <div class="panel_but"><a class="btn btn-primary btn-xs" href="#">新增用户</a></div>
+        <div class="panel_but">
+            <div class="btn-group">
+                <button type="button" class="btn btn-success dropdown-toggle btn-xs" data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                    按ID排序 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="order(1)">按ID排序</a></li>
+                    <li><a href="#" onclick="order(2)">按年龄排序</a></li>
+                    <li><a href="#" onclick="order(3)">按余额排序</a></li>
+                    <li><a href="#" onclick="order(4)">按入职时间排序</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel_but"><a id="choice_a" class="btn btn-default btn-xs">降 序</a></div>
+        用户列表
     </div>
+    {% block table %}
+    <table class="table table-bordered">
+        <thead>
+        {% for stu in stu_desc %}
+        <th>{{ stu }}</th>
+        {% endfor %}
+        <th>操作</th>
+        </thead>
+        <tbody>
+        {% for obj in data_list %}
+        <tr class="user_tr">
+            <td>{{ obj.id }}</td>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.password }}</td>
+            <td>{{ obj.age }}</td>
+            <td>{{ obj.account }}</td>
+            <td>{{ obj.create_time }}</td>
+            <td>{{ obj.depart_id }}</td>
+            <td>{{ obj.gender }}</td>
+            <td>
+                   <a class="btn btn-success" href="#">编辑</a>
+                   <a class="btn btn-danger" href="#">删除</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
+</div>
 {% endblock %}
 
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'css/staf_info.css' %}">
+<link rel="stylesheet" href="{% static 'css/staf_info.css' %}">
+{% endblock %}
+
+{% block script %}
+    function order(id){
+        var li_list = document.getElementsByTagName('li');
+        str = li_list[12+id].textContent;
+
+        span = '<span class="caret"></span>';
+        var order_text= document.getElementsByTagName('button')[1];
+
+        order_text.innerHTML=str+span;
+
+    }
+
+    $("#choice_a").click(function (){
+        var choice_a = document.getElementById("choice_a");
+        var str = choice_a.textContent;
+        var status ="";
+
+        if(str=="生 序"){
+            choice_a.textContent="降 序";
+            status = str;
+        }
+        if(str=="降 序"){
+            choice_a.textContent="生 序";
+            status = str;
+        }
+
+        var order_obj = document.getElementsByTagName('button')[1];
+        order_way = order_obj.textContent;
+
+        $.ajax({
+            url:  '/admin/user',
+            type: 'POST',
+            data:{'status': status,
+                  'order_way':order_way,
+                 },
+            datatype:'json',
+            success: function(data) {
+                var user_tr_list = document.getElementsByClassName('user_tr');
+                console.log(user_tr_list);
+                for(var i = 0; i< user_tr_list.length; i++){
+                    user_tr_list[i].cells[0].textContent = data[i].pk;
+                    user_tr_list[i].cells[1].textContent = data[i].fields.name;
+                    user_tr_list[i].cells[2].textContent = data[i].fields.password;
+                    user_tr_list[i].cells[3].textContent = data[i].fields.age;
+                    user_tr_list[i].cells[4].textContent = data[i].fields.account;
+                    user_tr_list[i].cells[5].textContent = data[i].fields.create_time;
+                    user_tr_list[i].cells[6].textContent = data[i].fields.depart_id;
+                    user_tr_list[i].cells[7].textContent = data[i].fields.gender;
+
+
+
+                }
+
+            }
+
+        })
+    })
 {% endblock %}

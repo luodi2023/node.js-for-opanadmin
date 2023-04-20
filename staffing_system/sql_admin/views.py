@@ -1,11 +1,16 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
 
 from .models import Department, UserInfo
 
-
+import json
 # Create your views here.
+def login(request):
+    return render(request, 'login.html')
+
 def admin(request):
-    return render(request, 'layout.html')
+    return render(request, 'admin.html')
 
 
 # 部门API
@@ -60,19 +65,28 @@ def depart_delete(request):
 
 # 用户API
 
+@csrf_exempt
 def admin_user(request):
+    statusr = request.POST.get('status')
+    order_way = request.POST.get('order_way')
+
     stu_desc_list = []
     data_list = UserInfo.objects.all()
+
+    if statusr == "降 序":
+        data_list = UserInfo.objects.all().order_by('-pk')
+    if statusr == "生 序":
+        data_list = UserInfo.objects.all().order_by('pk')
 
     stu = UserInfo._meta.fields
     for item in range(len(stu)):
         temp = stu[item].verbose_name
         stu_desc_list.append(temp)
 
-    book_obj = Department.objects.filter(pk=Department).first()
-    print(book_obj.title)
+    if request.method == "GET":
+        return render(request, 'admin_user/user_index.html', {'stu_desc': stu_desc_list,
+                                                              'data_list': data_list,
+                                                              })
 
-    return render(request, 'admin_user/user_index.html', {'stu_desc': stu_desc_list,
-                                                          'data_list': data_list,
-                                                          })
-
+    json_data = serializers.serialize('json', data_list)
+    return HttpResponse(json_data, content_type="application/json",charset='utf-8')

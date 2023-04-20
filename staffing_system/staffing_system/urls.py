@@ -19,7 +19,11 @@ from django.urls import path
 from sql_admin import views
 
 urlpatterns = [
-   path('', views.admin),
+   path('', views.login),
+
+
+
+   path('admin/', views.admin),
 
    # 部门API
    path('admin/depart', views.admin_depart),
