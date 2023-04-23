@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+}
+
+
+
+.nav{
+
+    width: 210px;
+    height: 790px;
+    background-color: #2e4058; 
+    user-select: none;
+    float: left;
+    transition: width 0.5s ease;
+    
+     
+}
+
+.nav a{
+    width: 100%;
+    text-decoration: none;
+    color: #8b9aad;
+    display: block;
+}
+
+.nav div{
+    height: 55px;
+    text-indent: 52px;
+    line-height: 50px;
+    transition:  background-color .40s linear
+}
+.nav div:hover {
+    background-color: #243347;
+}
+
+.nav div,.nav{
+    text-decoration: none;
+    color: #8b9aad;
+    user-select: none;
+}
+
+div[class^=tr_box]{
+    height: 0px;
+    background-color: #243347;
+    overflow-y: hidden;
+    transition: height 0.4s ease;
+}
+
+div[class^=td_box]{
+    height: 0px;
+    background-color: #1d2c3f;
+    color: #8b9aad;
+    transition: height 0.3s ease;
+}
+div[class^=td_box]:hover{
+    background-color: #19212c;
+ 
+}
+.navbar{
+    width: auto 1220px;
+    height: 50px;
+    float: left;
+    line-height: 50px;
+    
+}
+
+.navbar .path{
+    float: left;
+    text-indent: 20px;
+}
+
+.navbar .assist{
+    float: right;
+    width: 265px;
+
+    background-color: #19212c;
+}
+
+.navbar a{
+    color: #797a7b;
+    text-decoration: none;
+}
+
+
+.vs{
+    width: 50px;
+    height: 50px;
+    float: left;
+    color: #8b9aad;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+.vs:hover{
+    background-color: #f9f9f9;
+}
+
