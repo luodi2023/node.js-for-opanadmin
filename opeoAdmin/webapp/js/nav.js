@@ -91,18 +91,28 @@ $('.vs').click(()=>{
     
     var $nav =$('.nav');
     if ($nav.css('width') === '210px'){
-        $('.vs').text('展开');
         $nav.css('width','53px');
         $('.nav>div').css('overflow','hidden');
         $('div[id^=createTd_]').attr('onclick','');
         $('div[class^=tr_box]').css('height','0px');
+
+        $('.data-district').css('width','1372px');
+        
+
+        var  $ico=$('.bi-text-indent-right path');
+        $ico.attr('d','M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z');
+
+        
     }else if ($nav.css('width') === '53px'){
-        $('.vs').text('收起');
         $nav.css('width','210px');
         for (var i=1;i<4;i++){
             $('#createTd_'+i.toString()).attr('onclick','on('+i.toString()+')');
         }
-        
+        $('.data-district').css('width','1215px');
+
+        var  $ico=$('.bi-text-indent-right path');
+        $ico.attr('d','M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm10.646 2.146a.5.5 0 0 1 .708.708L11.707 8l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zM2 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z');
+
     }
     
 })

@@ -23,6 +23,8 @@ exports.index = (req,res,path) =>{
                 }
                 res.end(data);
             })
+        }else if(req.url == '/favicon.ico'){
+            res.end();
         }
 };
 

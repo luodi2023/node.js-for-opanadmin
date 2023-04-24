@@ -52,12 +52,46 @@ ajaxApp.get('/getlink',(req,res)  =>{
    
 })
 
+
+ajaxApp.get('/dashboard',(req,res)  =>{
+        res.send();
+}) 
+
+// personnel
+
 ajaxApp.get('/personnel/user',(req,res)  =>{
-        res.send('sada');
- })
+    res.send();
+}) 
+
+ajaxApp.get('/personnel/group',(req,res)  =>{
+    res.send();    
+}) 
+ajaxApp.get('/personnel/fieldRelation',(req,res)  =>{
+    res.send();    
+}) 
+
+// system
+
+ajaxApp.get('/system/role',(req,res)  =>{
+    res.send();    
+}) 
+ajaxApp.get('/system/menu',(req,res)  =>{
+    res.send();    
+}) 
+ajaxApp.get('/system/api',(req,res)  =>{
+    res.send();   
+}) 
+
+// log
+
+ajaxApp.get('/log/operation-log',(req,res)  =>{
+    res.send();   
+}) 
+
 
 
 
 ajaxApp.listen(3000,()=>{
     console.log('已启动 ajax服务器 端口为3000');
 })
+
