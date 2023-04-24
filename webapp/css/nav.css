@@ -63,8 +63,9 @@ div[class^=td_box]:hover{
     width: 1215px;
     height: 1000px;
     float: right;
-    line-height: 50px;
+    
     transition: witdt ,0.4s ease;
+    
 }
 
 .data-district .path{
@@ -102,6 +103,7 @@ div[class^=td_box]:hover{
 .navbar{
     width: 100%;
     height: 50px;
+    line-height: 50px;
     box-shadow: 0px 2px 2px #f3f4f5;
 }
 
@@ -110,12 +112,48 @@ div[class^=td_box]:hover{
     height: 35px;
     box-shadow: 0px 2px 2px #f3f4f5;
     float: left;
+    line-height: 37px;
+    color: #f9f7f7;
+    font-size: 10px;
+    
+    
+}
+
+.record .one-but{
+    height: 25px;
+    border: none ;
+    color: #ffffdf;
+    background: #00c081;
+    margin-left: 15px;
+}
+
+.record button[class^=insert-but]{
+    height: 25px;
+    color: #fcfcfc;
+    border: 1px solid;
+    margin-left: 10px;
+   
+}
+
+.record button{
+    transition: background-color 0.3s ease;
 }
 
 .data-district .user-district{
     width: 100%;
     height: 100%;
-    float: left;
+    float: right;
     background-color: #eff1f5;
     
+    transition: all, 0.5s ease;
+    
+}
+
+
+
+
+.data-district .user-district1{
+    height: 100%;
+    float: left;
+    transition: width 0.5s ease;
 }

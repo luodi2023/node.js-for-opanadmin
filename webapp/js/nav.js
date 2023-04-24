@@ -2,7 +2,8 @@
 var static = new Object();
 let home =null;
 let url_key =null;
-
+let standard =null;
+let practical=null;
 
 $.ajax({
     url :'http://localhost:3000/getlink',
@@ -58,8 +59,8 @@ function on(id){
         
 
         for(var i = 0;i<rom;i++){
-            var standard = url_key[Number(id)];
-            var practical =  static.url[url_key[Number(id)]];
+            standard = url_key[Number(id)];
+            practical =  static.url[url_key[Number(id)]];
             var url = '/#'+ standard + practical[i];
             $menu.append('<div class="td_box'+id+'"><a href="'+url+'">'+text_list[i]+'</a></div>');
         }
