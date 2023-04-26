@@ -3,6 +3,8 @@ const http = require('http');
 const express = require('express');
 const static = require('../config/path');
 const view =  require('./view');
+const mysql = require('./mysql');
+
 
 
 
@@ -13,14 +15,14 @@ html = webpath['web'] + webpath['file'][0];
 css = webpath['web'] + webpath['file'][1];
 js = webpath['web'] + webpath['file'][2];
 
-const pathObj = [html,css,js];
+const filetype = [html,css,js];
 
 // 创建 web 服务器实例
 const app = http.createServer();
 
 app.on('request',(req, res) =>{
-         view.index(req,res,pathObj);
-         view.moduleCall(req,res,pathObj);
+         view.index(req,res,filetype);
+         view.moduleCall(req,res,filetype);
 })
 
 //  启动web服务器
@@ -53,14 +55,24 @@ ajaxApp.get('/getlink',(req,res)  =>{
 })
 
 
+
 ajaxApp.get('/dashboard',(req,res)  =>{
-        res.send();
+
+    mysql.tb_user.query('select count(user_id) from tb_user',(err,row)=>{
+        if (err){
+            console.log(err);
+        }else{
+            res.send(row[0]);
+        }
+        
+    })
+        
 }) 
 
 // personnel
 
 ajaxApp.get('/personnel/user',(req,res)  =>{
-    res.send();
+        
 }) 
 
 ajaxApp.get('/personnel/group',(req,res)  =>{

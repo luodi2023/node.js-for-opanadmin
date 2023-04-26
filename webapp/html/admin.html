@@ -6,25 +6,9 @@
     
         <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <link rel="stylesheet" href="webapp/css/nav.css">
+        <link rel="stylesheet" href="webapp/css/data_page.css">
     </head>
     <body>
-        <div class="nav">
-                <div>
-                    <a>
-                        首页
-                    </a>
-                </div>
-                <div id="createTd_1" onclick="on('1')">
-                    
-                人员管理
-                </div>
-                <div id="createTd_2" onclick="on('2')">
-                
-                    系统管理
-                </div>
-                <div id="createTd_3" onclick="on('3')">日志管理</div>
-            
-        </div>
         <div class="data-district">
             <div class="navbar">
                 <div class="vs"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-text-indent-right" viewBox="0 0 16 16">
@@ -37,10 +21,65 @@
                 <button onclick="but_url(0)" class="one-but">首页</button>
                 
             </div>
-            <div class="user-district"></div>
-            <div class="user-district1"></div>
+            <div class="user-district">
+                    <div class="page">
+                        <div class="panel-group">
+                            <div class="card-panel">
+                                <div class="card-panel-text">用户
+                                    <span class="card_order"></span>
+                                </div>
+                            </div>
+                            <div class="card-panel">
+                                <div class="card-panel-text">分组
+                                    <span class="card_order"></span>
+                                </div>
+                            </div>
+                            <div class="card-panel">
+                                <div class="card-panel-text">角色
+                                    <span class="card_order"></span>
+                                </div>
+                            </div>
+                            <div class="card-panel">
+                                <div class="card-panel-text">菜单
+                                    <span class="card_order"></span>
+                                </div>
+                            </div>
+                        
+                            <div class="card-panel">
+                                <div class="card-panel-text">接口
+                                    <span class="card_order"></span>
+                                </div>
+                            </div>
+                            <div class="card-panel">
+                                <div class="card-panel-text">日志
+                                    <span class="card_order"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </table>
+            </div>
         </div>
+        <div class="nav">
+            <div>
+                <a>
+                    首页
+                </a>
+            </div>
+            <div id="createTd_1" onclick="on('1')">
+                
+            人员管理
+            </div>
+            <div id="createTd_2" onclick="on('2')">
+            
+                系统管理
+            </div>
+            <div id="createTd_3" onclick="on('3')">日志管理</div>
+        
+    </div>
     </body>
+    <script src="/webapp/js/init_page.js"></script>
     <script src="/webapp/js/nav.js"></script>
     <script src="/webapp/js/module_call.js"></script>
+    <script src="/webapp/js/data_page.js"></script>
 </html>

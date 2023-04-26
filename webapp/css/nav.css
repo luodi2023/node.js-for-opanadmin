@@ -3,6 +3,7 @@
 }
 
 
+
 .nav{
 
     width: 210px;
@@ -20,6 +21,7 @@
     height: 55px;
     text-decoration: none;
     color: #8b9aad;
+    font-size: 15px;
     display: block;
 
 }
@@ -43,11 +45,20 @@
     user-select: none;
 }
 
+div[id^=createTd]{
+    font-size: 15px;
+}
+
 div[class^=tr_box]{
     height: 0px;
     background-color: #243347;
     overflow-y: hidden;
-    transition: height 0.3s ease;
+    transition: height 0.4s ease;
+}
+
+div[class^=tr_box] a{
+   text-indent: 70px;
+   
 }
 
 div[class^=td_box]{
@@ -61,9 +72,8 @@ div[class^=td_box]:hover{
 }
 .data-district{
     width: 1215px;
-    height: 1000px;
+    height: 750px;
     float: right;
-    
     transition: witdt ,0.4s ease;
     
 }
@@ -83,7 +93,6 @@ div[class^=td_box]:hover{
 .data-district a{
     color: #797a7b;
     text-decoration: none;
-   
 }
 
 
@@ -107,7 +116,7 @@ div[class^=td_box]:hover{
     box-shadow: 0px 2px 2px #f3f4f5;
 }
 
-.data-district .record{
+.record{
     width: 100%;
     height: 35px;
     box-shadow: 0px 2px 2px #f3f4f5;
@@ -115,7 +124,6 @@ div[class^=td_box]:hover{
     line-height: 37px;
     color: #f9f7f7;
     font-size: 10px;
-    
     
 }
 
@@ -137,23 +145,29 @@ div[class^=td_box]:hover{
 
 .record button{
     transition: background-color 0.3s ease;
+    
 }
 
 .data-district .user-district{
     width: 100%;
     height: 100%;
-    float: right;
-    background-color: #eff1f5;
-    
-    transition: all, 0.5s ease;
-    
+    float: left; 
+    margin-top: 2px;
+    position: relative;
 }
 
-
-
-
-.data-district .user-district1{
+.user-district .page{
+    width: 100%;
     height: 100%;
+    background-color: #f0f2f6;
+    text-align: center;
     float: left;
-    transition: width 0.5s ease;
+    opacity: 1;
+    position: absolute;
+    left: 0px;
+    transition: all 0.5s ease;
 }
+
+
+
+

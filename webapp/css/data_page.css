@@ -1,0 +1,114 @@
+.panel-group{
+    width: 1175px;
+    height: 250px;
+    margin-top: 20px;
+    float: left;
+    
+}
+
+
+.card-panel{
+    width: 350px;
+    height: 110px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 30px;
+    background-color:#ffffff;
+    transition: all 0.7s ease;
+}
+
+.card-panel:hover{
+    transform: scale(1.05);
+}
+
+.card-panel-text{
+    float: right;
+    position: relative;
+    margin-right: 15px;
+    margin-top: 10px;
+    color: #8c8c8c;
+}
+
+.card_order{
+    font-size: 25px;
+    position: relative;
+    top: 40px;
+    right: 30px;
+    color: #666666;
+}
+
+.user-panel{
+    width: 1190px;
+    height: 580px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: -5px 5px 5px #f3f4f5,5px -5px 5px #f3f4f5;
+    
+}
+
+
+.user-panel table{
+    width: 103%;
+    height: 400px;
+    margin-top: 60px;
+    margin-left: 14px;
+    float: left;
+    border: #e0e1e4 1px solid;
+    
+}
+
+.user-operation-panel{
+    width: 95%;
+    height: 100px;
+    float: left;
+        
+}
+
+.user-input{
+    width: 660px;
+    height: 50px;
+    float: left;
+    position: relative;
+    text-align: left;
+    line-height: 80px;
+    margin-left: 6px;
+
+}
+.user-input span{
+    font-size: 14px;
+    color: #606266;
+    margin-left: 10px;
+}
+
+.user-input input{
+    width: 95px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid #dcdfe6;
+    outline: none;
+    text-indent: 15px;
+    margin-left: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.user-input input::placeholder{
+    color: #dcdfe6;
+}
+
+select[class^=select-input]{
+    width: 95px;
+    height: 25px;
+    border-radius: 5px;
+    color: #dcdfe6;
+    border: 1px solid #dcdfe6;
+    outline: none;
+    margin-left: 10px;
+    transition: border-color 0.3s ease;
+}
+
+
+
+
+

@@ -10,6 +10,7 @@ $.ajax({
     type : 'get',
     data : {'url':''},
     dataType : 'json',
+    async : false,
     success: (data) =>{
         //复制json对象
         static.url = JSON.parse(JSON.stringify(data));
@@ -25,6 +26,9 @@ $.ajax({
 
 
 
+
+
+
 function on(id){
    //元素获取
    var $main = $('#createTd_'+id);
@@ -32,7 +36,8 @@ function on(id){
    var $module = $('.td_box'+id); 
    var text_list = []
    var rom = null
-   
+
+
    if(id == '1'){
        rom = 3;
        text_list = ['用户管理','分组管理','字段关系管理'];
@@ -71,14 +76,14 @@ function on(id){
 
     //下拉效果
     }else{
-        if ($menu.css('height') == '0px' ){
-            $menu.css('height',px+'px');
-           
-        
-        }else{
+        if($menu.css('height') <= px+'px' && $menu.css('height') !='0px'){
             $menu.css('height','0px');
             $menu.css('overflow-y','hidden');             
-        }       
+        }else{
+            
+            $menu.css('height',px+'px');
+            
+        }
         
     }
 }
